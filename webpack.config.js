@@ -6,10 +6,11 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
+  entry: './src/index.jsx',
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -18,4 +19,7 @@ module.exports = {
     ],
   },
   plugins: [htmlPlugin],
+  resolve: {
+    extensions: ['.mjs', '.js', '.jsx'],
+  },
 };
